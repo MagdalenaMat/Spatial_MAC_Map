@@ -1,0 +1,104 @@
+{
+    "samples": [
+        {
+            "folder": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P",
+            "name": "CD1_2_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P/CD1_2_CPTNC_CD68Y_NLRP3P.dzi"
+        },
+        {
+            "folder": "Crohns_Disease/CD2_CPTNC_CD68Y_NLRP3P",
+            "name": "CD2_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD2_CPTNC_CD68Y_NLRP3P/CD2_CPTNC_CD68Y_NLRP3P.dzi"
+        },
+        {
+            "folder": "Crohns_Disease/CD1_NLRP3P_CD68Y_CPTNC",
+            "name": "CD1_NLRP3P_CD68Y_CPTNC",
+            "dzi": "Crohns_Disease/CD1_NLRP3P_CD68Y_CPTNC/CD1_NLRP3P_CD68Y_CPTNC.dzi"
+        },
+        {
+            "folder": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P",
+            "name": "CD3_2_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P/CD3_2_CPTNC_CD68Y_NLRP3P.dzi"
+        },
+        {
+            "folder": "Crohns_Disease/CD3_CPTNC_CD68Y_NLRP3P",
+            "name": "CD3_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD3_CPTNC_CD68Y_NLRP3P/CD3_CPTNC_CD68Y_NLRP3P.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC2_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC6_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC10_2_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC10_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_panCKC_FOLR2Y_IL4I1R/NC10_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC8_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC8_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC8_panCKC_FOLR2Y_IL4I1R/NC8_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC1_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC1_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC1_panCKC_FOLR2Y_IL4I1R/NC1_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC5_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC7_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC7_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC7_LYVE1P_FOLR2Y_IL4I1R/NC7_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC4_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC4_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC4_LYVE1P_FOLR2Y_IL4I1R/NC4_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC1_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC1_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC1_LYVE1P_FOLR2Y_IL4I1R/NC1_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC2_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC2_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC2_LYVE1P_FOLR2Y_IL4I1R/NC2_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC12_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC12_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC12_LYVE1P_FOLR2Y_IL4I1R/NC12_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC6_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC6_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC6_LYVE1P_FOLR2Y_IL4I1R/NC6_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC9_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC9_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC9_LYVE1P_FOLR2Y_IL4I1R/NC9_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC8_LYVE1P_FOLR2Y_IL4I1R",
+            "name": "NC8_LYVE1P_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC8_LYVE1P_FOLR2Y_IL4I1R/NC8_LYVE1P_FOLR2Y_IL4I1R.dzi"
+        }
+    ]
+}

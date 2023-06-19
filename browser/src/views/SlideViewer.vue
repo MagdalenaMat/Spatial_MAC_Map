@@ -1,61 +1,14 @@
 <template>
   <v-app>
     <v-app-bar color="primary">
-      <v-select :items="samples" v-model="selectedSampleName" label="Select slide" item-value="name"
-        item-title="name"></v-select>
-    </v-app-bar>
-    <v-navigation-drawer v-model="slideSettingsShown" app temporary width="250">
-      <v-expansion-panels>
-        <v-expansion-panel v-if="selectedSample && selectedSample.files && selectedSample.files.length > 0">
-          <v-expansion-panel-title>Slide details</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-row>
-              <v-col>
-                <v-textarea label="Description" v-model="description"></v-textarea>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel title="Multi channel settings" v-if="selectedSample && selectedSample.files && selectedSample.files.length > 1">
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="file in selectedSample.files" :key="file">
-                <v-list-item-title>
-                  <b>{{ file }}</b>
-                </v-list-item-title>
-                <v-list-item-content>
-                      <p>gain: {{ gain[file] }}</p>
-                      <v-slider v-model="gain[file]" :max="10" :min="1" :step="1" default="1"></v-slider>
-                      <p>color</p>
-                      <v-select v-model="ch[file]" :items="colorOptions" default="empty"></v-select>
-                      <p>stain description</p>
-                      <v-text-field v-model="ch_stain[file]" label="Stain description"></v-text-field>
-                  <v-divider></v-divider>
-                </v-list-item-content>
-                </v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel v-if="overlays && overlays.length > 0">
-          <v-expansion-panel-title>Slide annotations</v-expansion-panel-title> 
-          <v-expansion-panel-text>
-            <v-list>
-              <v-list-item v-for="(overlay, index) in overlays" :key="overlay.number">
-                <v-list-item-title>
-                  <b>{{ overlay.number }}</b>
-                </v-list-item-title>
-                <v-list-item-content>
-                      <p>annotation description</p>
-                      <v-text-field v-model="overlay[index]" label="Annotation description"></v-text-field>
-                      <v-btn color="warning" @click="deleteOverlay(index)">Delete</v-btn>
-                  <v-divider></v-divider>
-                </v-list-item-content>
-                </v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
-    </v-navigation-drawer>
+        <v-select
+            v-model="selectedSampleDzi"
+            :items="samples"
+            item-title="folder"
+            item-value="dzi"
+            label="Standard"></v-select>
+      </v-app-bar>
+  
     <v-main class="d-flex relative-container">
       <div id="right-arrow-overlay" style="display: none;">
         <span style="font-size: 2em; color: white;">&rarr;</span>
@@ -63,13 +16,12 @@
       <div id="view"></div>
       <div id="slide-details">
         <ul>
-          <li>Stain 1: DAPI</li>
-          <li>Stain 2: CD3</li>
-          <li>Stain 3: CPTNC</li>
-          <li>Stain 4: CD68Y</li>
-          <li>Stain 5: NLRP3P</li>
+          <li v-for="(stain, index) in currentColors" :key="index" :style="{ color: stain.color }">
+            Stain {{ index + 1 }}: {{ stain.stain }}
+          </li>
         </ul>
-        <a href="/">Download slide</a>
+        <a v-if="downloadLink" target="_blank" :href="downloadLink" download>Download slide</a> <br />
+        <a v-if="selectedSampleUrl" target="_blank" :href="selectedSampleUrl">Current slide URL</a>
       </div>
     </v-main>
 
@@ -77,10 +29,10 @@
 </template>
 
 <script>
-import axios from "axios";
 import OpenSeadragon from "openseadragon";
+import samples from "../lib/data.json";
 
-const base_url = process.env.NODE_ENV === "production" ? "https://filesystem-app-ijxbjfq24a-uc.a.run.app/" : "http://127.0.0.1:2500";
+const base_url = "https://storage.googleapis.com/spatial-mac-map/images";
 
 export default {
   components: {
@@ -89,30 +41,55 @@ export default {
     return {
       selectedSample: {},
       selectedSampleName: "",
+      selectedSampleDzi: "",
+      selectedSampleUrl: "",
       samples: [],
+      currentColors: [],
+      downloadLink: "",
       viewer: null,
       ch: {},
       ch_stain: {},
       gain: {},
       description: "",
       slideSettingsShown: false,
-      colorOptions: ["empty", "red", "green", "blue", "yellow", "cyan", "white", "black"],
+      colorOptions: [
+        {
+          letter: "R", 
+          color: "red"
+        }, 
+        {
+          letter: "P", 
+          color: "purple"
+        }, 
+        {
+          letter: "C", 
+          color: "cyan"
+        }, 
+        {
+          letter: "G", 
+          color: "green"
+        }, 
+        {
+          letter: "Y", 
+          color: "yellow"
+        }, 
+        {
+          letter: "O", 
+          color: "orange"
+        }, 
+        {
+          letter: "B", 
+          color: "blue"
+        }
+      ],
       overlays: [],
     }
   },
   computed: {
-
-    dropdownOptions() {
-      let buf = [];
-      buf = this.selectedSample.files ? this.selectedSample.files : [];
-      buf.push("empty");
-      return buf;
-    }
-
   },
   watch: {
-    selectedSampleName: function () {
-      this.loadSample(this.selectedSampleName);
+    selectedSampleDzi: function () {
+      this.loadSample();
     }
   },
   methods: {
@@ -134,98 +111,43 @@ export default {
 
     },
 
-    addOverlay(x, y, number) {
-      const overlayElement = document.createElement("div");
-      overlayElement.className = "overlay-"+number; 
-      overlayElement.innerHTML = '<span>'+number+'</span><span style="font-size: 2em; color: white;">&rarr;</span>';
+    reloadSlide() {
+      let currentSlide = `${base_url}/${this.selectedSampleDzi}`;
+      this.downloadLink = currentSlide.slice(0, -4) + ".tif";
+      this.selectedSampleUrl = `http://localhost:5173/?slide=${this.selectedSample.folder}`;
+      this.viewer.open(currentSlide)
+    },
 
-      this.viewer.addOverlay({
-        element: overlayElement,
-        location: new OpenSeadragon.Point(x, y),
-        placement: OpenSeadragon.Placement.RIGHT
+    loadSample() {
+      this.selectedSample = this.samples.filter(s => s.dzi === this.selectedSampleDzi)[0];
+
+      this.currentColors = this.selectedSample.name.split("_").filter(s => s.match(/[A-Z]$/)).map(s => {
+        return {
+          stain: s.slice(0, -1),
+          letter: s.slice(-1),
+          color: this.colorOptions.filter(c => c.letter === s.slice(-1))[0].color
+        }
+        
       });
 
-      new OpenSeadragon.MouseTracker({
-        element: overlayElement,
-        clickHandler: (event) => {
-          event.originalEvent.preventDefault();
-          console.log(event);
-          console.log('Overlay clicked');
-          // Add your custom logic for handling the click event on the overlay here
-        },
-      }).setTracking(true);
-    },  
-
-    deleteOverlay(index) {
-      this.overlays.splice(index, 1);
-      this.reloadSlide();
-    },
-
-    loadSampleSheet() {
-      axios.get(`${base_url}/samples.json`)
-        .then(response => {
-          this.samples = response.data.samples;
-          console.log(this.samples);
-        })
-    },
-
-    saveDetails() {
-      let data = {
-        ch: this.ch,
-        gain: this.gain,
-        ch_stain: this.ch_stain,
-        description: this.description,
-        overlays: this.overlays,
-      }
-      this.samples.filter(s => s.name === this.selectedSample.name)[0].details = data;
-
-      console.log(data);
-      axios.post(`${base_url}/save/${this.selectedSample.name}`, data)
-        .then(response => {
-          console.log(response);
-        })
-    },
-
-    reloadSlide() {
-
-      const chString = this.selectedSample.files.map((file) => {
-        return this.ch[file] ? this.ch[file] : "empty";
-      }).join(";");
-
-      const gainString = this.selectedSample.files.map((file) => {
-        return this.gain[file] ? this.gain[file] : "1";
-      }).join(";");
-
-      const filesString = this.selectedSample.files.join(";");
-
-      let currentSlide = `${base_url}/${filesString}/${chString}/${gainString}/${this.selectedSample.name}.dzi`;
-
-      console.log(currentSlide);
-
-      this.viewer.open(currentSlide)
-
-      for (let i = 0; i < this.overlays.length; i++) {
-        this.addOverlay(this.overlays[i].location.x, this.overlays[i].location.y, this.overlays[i].number);
-      }
-    },
-
-    loadSample(sample) {
-      this.selectedSample = this.samples.filter(s => s.name === sample)[0];
-
-      this.ch = this.selectedSample.details.ch ? this.selectedSample.details.ch : {};
-      this.gain = this.selectedSample.details.gain ? this.selectedSample.details.gain : {};
-      this.ch_stain = this.selectedSample.details.ch_stain ? this.selectedSample.details.ch_stain : {};
-      this.description = this.selectedSample.details.description ? this.selectedSample.details.description : "";
-      this.overlays = this.selectedSample.details.overlays ? this.selectedSample.details.overlays : [];
-
+      this.currentColors.unshift({
+            stain: "DAPI",
+            letter: "B",
+            color: "blue"
+          }); 
       this.reloadSlide();
     }
 
   },
   mounted() {
-
+    this.samples = samples.samples;
     this.loadOpenSeaDragon();
-    this.loadSampleSheet();
+
+    if(this.$route.query.slide) {
+      this.selectedSampleDzi = this.samples.filter(s => s.folder === this.$route.query.slide)[0].dzi;
+    } else {
+      this.selectedSampleDzi = this.samples[1].dzi;
+    }
   },
 }
 </script>
