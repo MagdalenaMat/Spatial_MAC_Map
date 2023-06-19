@@ -13,5 +13,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist'
-  }
+  }, 
+  base: '/Spatial_MAc_Map/'
 })
