@@ -114,7 +114,7 @@ export default {
     reloadSlide() {
       let currentSlide = `${base_url}/${this.selectedSampleDzi}`;
       this.downloadLink = currentSlide.slice(0, -4) + ".tif";
-      this.selectedSampleUrl = `http://localhost:5173/?slide=${this.selectedSample.folder}`;
+      this.selectedSampleUrl = `https://magdalenamat.github.io/Spatial_MAC_Map/?slide=${this.selectedSample.folder}`;
       this.viewer.open(currentSlide)
     },
 
