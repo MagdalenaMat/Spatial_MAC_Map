@@ -134,7 +134,7 @@ export default {
       this.selectedSample = this.samples.filter(s => s.dzi === this.selectedSampleDzi)[0];
 
       try {
-        this.currentColors = this.selectedSample.name.split("_").filter(s => s.match(/[A-Z]$/)).map(s => {
+        this.currentColors = this.selectedSample.name.split("_").slice(1).filter(s => s.match(/[A-Z]$/)).map(s => {
           return {
             stain: s.slice(0, -1),
             letter: s.slice(-1),
