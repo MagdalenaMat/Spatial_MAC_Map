@@ -3,9 +3,7 @@
     <v-app-bar color="primary">
       <v-select
           v-model="selectedFolder"
-          :items="samples"
-          item-title="base_folder"
-          item-value="base_folder"
+          :items="folderOptions"
           label="Folder">
         </v-select>
         <v-select
@@ -98,6 +96,9 @@ export default {
     sampleOptions() {
       return this.samples.filter(s => s.base_folder == this.selectedFolder);
     },
+    folderOptions() {
+      return [...new Set(this.samples.map(s => s.base_folder))];
+    }
   },
   watch: {
     selectedSampleDzi: function () {
