@@ -32,7 +32,7 @@
 import OpenSeadragon from "openseadragon";
 import samples from "../lib/data.json";
 
-const base_url = "https://storage.googleapis.com/spatial-mac-map/images";
+const base_url = "https://storage.googleapis.com/spatial-mac-map";
 
 export default {
   components: {
