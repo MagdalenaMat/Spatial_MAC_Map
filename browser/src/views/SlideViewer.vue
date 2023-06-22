@@ -1,12 +1,20 @@
 <template>
   <v-app>
     <v-app-bar color="primary">
+      <v-select
+          v-model="selectedFolder"
+          :items="samples"
+          item-title="base_folder"
+          item-value="base_folder"
+          label="Folder">
+        </v-select>
         <v-select
-            v-model="selectedSampleDzi"
-            :items="samples"
-            item-title="folder"
-            item-value="dzi"
-            label="Standard"></v-select>
+          v-model="selectedSampleDzi"
+          :items="sampleOptions"
+          item-title="name"
+          item-value="dzi"
+          label="Sample">
+        </v-select>
       </v-app-bar>
   
     <v-main class="d-flex relative-container">
@@ -43,6 +51,7 @@ export default {
       selectedSampleName: "",
       selectedSampleDzi: "",
       selectedSampleUrl: "",
+      selectedFolder: "",
       samples: [],
       currentColors: [],
       downloadLink: "",
@@ -86,6 +95,9 @@ export default {
     }
   },
   computed: {
+    sampleOptions() {
+      return this.samples.filter(s => s.base_folder == this.selectedFolder);
+    },
   },
   watch: {
     selectedSampleDzi: function () {
@@ -121,14 +133,18 @@ export default {
     loadSample() {
       this.selectedSample = this.samples.filter(s => s.dzi === this.selectedSampleDzi)[0];
 
-      this.currentColors = this.selectedSample.name.split("_").filter(s => s.match(/[A-Z]$/)).map(s => {
-        return {
-          stain: s.slice(0, -1),
-          letter: s.slice(-1),
-          color: this.colorOptions.filter(c => c.letter === s.slice(-1))[0].color
-        }
-        
-      });
+      try {
+        this.currentColors = this.selectedSample.name.split("_").filter(s => s.match(/[A-Z]$/)).map(s => {
+          return {
+            stain: s.slice(0, -1),
+            letter: s.slice(-1),
+            color: this.colorOptions.filter(c => c.letter === s.slice(-1))[0].color
+          }
+          
+        });
+      } catch (e) {
+        console.log(e);
+      }
 
       this.currentColors.unshift({
             stain: "DAPI",
@@ -141,12 +157,24 @@ export default {
   },
   mounted() {
     this.samples = samples.samples;
+
+    this.samples = this.samples.map(s => {
+  let folders = s.folder.split('/');
+  folders.pop();
+  return {
+    ...s,
+    base_folder: folders.join('/')
+  }
+});
+
     this.loadOpenSeaDragon();
 
     if(this.$route.query.slide) {
       this.selectedSampleDzi = this.samples.filter(s => s.folder === this.$route.query.slide)[0].dzi;
+      this.selectedFolder = this.samples.filter(s => s.folder === this.$route.query.slide)[0].base_folder;
     } else {
-      this.selectedSampleDzi = this.samples[1].dzi;
+      this.selectedSampleDzi = this.samples[0].dzi;
+      this.selectedFolder = this.samples[0].base_folder;
     }
   },
 }
