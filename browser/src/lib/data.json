@@ -6,34 +6,14 @@
             "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/BC_28485_panCKC_IL4I1Y_SPP1P/BC_28485_panCKC_IL4I1Y_SPP1P.dzi"
         },
         {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P",
-            "name": "BC_28621_panCKC_IL4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P.dzi"
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_CRC_33041_Il4I1Y_SPP1P_panCKC",
+            "name": "left_CRC_33041_Il4I1Y_SPP1P_panCKC",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_CRC_33041_Il4I1Y_SPP1P_panCKC/left_CRC_33041_Il4I1Y_SPP1P_panCKC.dzi"
         },
         {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P",
-            "name": "CRC_13130A9_panCKC_Il4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P.dzi"
-        },
-        {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P",
-            "name": "CRC_33086_panCKC_Il4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P.dzi"
-        },
-        {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P",
-            "name": "CRC_33096_panCKC_IL4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P.dzi"
-        },
-        {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P",
-            "name": "CRC_33124_panCKC_Il4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P.dzi"
-        },
-        {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P",
-            "name": "NC_33096_panCKC_IL4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P.dzi"
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P",
+            "name": "top_BC_28644_panCKC_IL4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P.dzi"
         },
         {
             "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/bottom_BC_28644_panCKC_IL4I1Y_SPP1P",
@@ -41,19 +21,34 @@
             "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/bottom_BC_28644_panCKC_IL4I1Y_SPP1P/bottom_BC_28644_panCKC_IL4I1Y_SPP1P.dzi"
         },
         {
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P",
+            "name": "NC_33096_panCKC_IL4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P/NC_33096_panCKC_IL4I1Y_SPP1P.dzi"
+        },
+        {
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P",
+            "name": "CRC_33096_panCKC_IL4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P/CRC_33096_panCKC_IL4I1Y_SPP1P.dzi"
+        },
+        {
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P",
+            "name": "CRC_33086_panCKC_Il4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P/CRC_33086_panCKC_Il4I1Y_SPP1P.dzi"
+        },
+        {
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P",
+            "name": "CRC_13130A9_panCKC_Il4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P/CRC_13130A9_panCKC_Il4I1Y_SPP1P.dzi"
+        },
+        {
             "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_BC_28568_panCKC_Il4I1Y_SPP1P",
             "name": "left_BC_28568_panCKC_Il4I1Y_SPP1P",
             "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_BC_28568_panCKC_Il4I1Y_SPP1P/left_BC_28568_panCKC_Il4I1Y_SPP1P.dzi"
         },
         {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_CRC_33041_Il4I1Y_SPP1P_panCKC",
-            "name": "left_CRC_33041_Il4I1Y_SPP1P_panCKC",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/left_CRC_33041_Il4I1Y_SPP1P_panCKC/left_CRC_33041_Il4I1Y_SPP1P_panCKC.dzi"
-        },
-        {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P",
-            "name": "right_BC_28568_panCKC_IL4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P.dzi"
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P",
+            "name": "BC_28621_panCKC_IL4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P/BC_28621_panCKC_IL4I1Y_SPP1P.dzi"
         },
         {
             "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_CRC_33041_IL4I1Y_SPP1P_panCKC",
@@ -61,9 +56,14 @@
             "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_CRC_33041_IL4I1Y_SPP1P_panCKC/right_CRC_33041_IL4I1Y_SPP1P_panCKC.dzi"
         },
         {
-            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P",
-            "name": "top_BC_28644_panCKC_IL4I1Y_SPP1P",
-            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P/top_BC_28644_panCKC_IL4I1Y_SPP1P.dzi"
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P",
+            "name": "right_BC_28568_panCKC_IL4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P/right_BC_28568_panCKC_IL4I1Y_SPP1P.dzi"
+        },
+        {
+            "folder": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P",
+            "name": "CRC_33124_panCKC_Il4I1Y_SPP1P",
+            "dzi": "full_slide_images/panCKC_IL4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P/CRC_33124_panCKC_Il4I1Y_SPP1P.dzi"
         },
         {
             "folder": "full_slide_images/FOLR2C_Il4I1R_SPP1Y/left_BC_28568_panCKC_FOLR2Y_IL4I1R",
@@ -101,14 +101,14 @@
             "dzi": "full_slide_images/FOLR2C_Il4I1R_SPP1Y/BC_28485_panCKC_FOLR2Y_IL4I1R/BC_28485_panCKC_FOLR2Y_IL4I1R.dzi"
         },
         {
-            "folder": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P",
-            "name": "CD1_2_CPTNC_CD68Y_NLRP3P",
-            "dzi": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P/CD1_2_CPTNC_CD68Y_NLRP3P.dzi"
-        },
-        {
             "folder": "Crohns_Disease/CD1_NLRP3P_CD68Y_CPTNC",
             "name": "CD1_NLRP3P_CD68Y_CPTNC",
             "dzi": "Crohns_Disease/CD1_NLRP3P_CD68Y_CPTNC/CD1_NLRP3P_CD68Y_CPTNC.dzi"
+        },
+        {
+            "folder": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P",
+            "name": "CD3_2_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P/CD3_2_CPTNC_CD68Y_NLRP3P.dzi"
         },
         {
             "folder": "Crohns_Disease/CD2_CPTNC_CD68Y_NLRP3P",
@@ -116,9 +116,9 @@
             "dzi": "Crohns_Disease/CD2_CPTNC_CD68Y_NLRP3P/CD2_CPTNC_CD68Y_NLRP3P.dzi"
         },
         {
-            "folder": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P",
-            "name": "CD3_2_CPTNC_CD68Y_NLRP3P",
-            "dzi": "Crohns_Disease/CD3_2_CPTNC_CD68Y_NLRP3P/CD3_2_CPTNC_CD68Y_NLRP3P.dzi"
+            "folder": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P",
+            "name": "CD1_2_CPTNC_CD68Y_NLRP3P",
+            "dzi": "Crohns_Disease/CD1_2_CPTNC_CD68Y_NLRP3P/CD1_2_CPTNC_CD68Y_NLRP3P.dzi"
         },
         {
             "folder": "Crohns_Disease/CD3_CPTNC_CD68Y_NLRP3P",
@@ -166,9 +166,19 @@
             "dzi": "Normal_Colon_LYVE1P_FOLR2Y_IL4I1R/NC4_LYVE1P_FOLR2Y_IL4I1R/NC4_LYVE1P_FOLR2Y_IL4I1R.dzi"
         },
         {
+            "folder": "Figure_images/Fig3D/IL4I1R_DAPI",
+            "name": "IL4I1R_DAPI",
+            "dzi": "Figure_images/Fig3D/IL4I1R_DAPI/IL4I1R_DAPI.dzi"
+        },
+        {
             "folder": "Figure_images/Fig3D/DAPI",
             "name": "DAPI",
             "dzi": "Figure_images/Fig3D/DAPI/DAPI.dzi"
+        },
+        {
+            "folder": "Figure_images/Fig3D/cp_HE",
+            "name": "cp_HE",
+            "dzi": "Figure_images/Fig3D/cp_HE/cp_HE.dzi"
         },
         {
             "folder": "Figure_images/Fig3D/HE",
@@ -179,16 +189,6 @@
             "folder": "Figure_images/Fig3D/IL4I1",
             "name": "IL4I1",
             "dzi": "Figure_images/Fig3D/IL4I1/IL4I1.dzi"
-        },
-        {
-            "folder": "Figure_images/Fig3D/IL4I1R_DAPI",
-            "name": "IL4I1R_DAPI",
-            "dzi": "Figure_images/Fig3D/IL4I1R_DAPI/IL4I1R_DAPI.dzi"
-        },
-        {
-            "folder": "Figure_images/Fig3D/cp_HE",
-            "name": "cp_HE",
-            "dzi": "Figure_images/Fig3D/cp_HE/cp_HE.dzi"
         },
         {
             "folder": "Figure_images/Fig2E/SPP1O_FOLR2Y_panCKC",
@@ -256,9 +256,9 @@
             "dzi": "Figure_images/Fig3A/panCKC_IL4I1R/panCKC_IL4I1R.dzi"
         },
         {
-            "folder": "Figure_images/Fig6F/left_NLRP3P_CD68Y_CPTNC",
-            "name": "left_NLRP3P_CD68Y_CPTNC",
-            "dzi": "Figure_images/Fig6F/left_NLRP3P_CD68Y_CPTNC/left_NLRP3P_CD68Y_CPTNC.dzi"
+            "folder": "Figure_images/Fig6F/rigth_full_NLRP3P_CD68Y_CPTNC",
+            "name": "rigth_full_NLRP3P_CD68Y_CPTNC",
+            "dzi": "Figure_images/Fig6F/rigth_full_NLRP3P_CD68Y_CPTNC/rigth_full_NLRP3P_CD68Y_CPTNC.dzi"
         },
         {
             "folder": "Figure_images/Fig6F/left_full_NLRP3P_CD68Y_CTPNC",
@@ -271,9 +271,9 @@
             "dzi": "Figure_images/Fig6F/right_NLRP3P_CD68Y_CPTNC/right_NLRP3P_CD68Y_CPTNC.dzi"
         },
         {
-            "folder": "Figure_images/Fig6F/rigth_full_NLRP3P_CD68Y_CPTNC",
-            "name": "rigth_full_NLRP3P_CD68Y_CPTNC",
-            "dzi": "Figure_images/Fig6F/rigth_full_NLRP3P_CD68Y_CPTNC/rigth_full_NLRP3P_CD68Y_CPTNC.dzi"
+            "folder": "Figure_images/Fig6F/left_NLRP3P_CD68Y_CPTNC",
+            "name": "left_NLRP3P_CD68Y_CPTNC",
+            "dzi": "Figure_images/Fig6F/left_NLRP3P_CD68Y_CPTNC/left_NLRP3P_CD68Y_CPTNC.dzi"
         },
         {
             "folder": "Figure_images/Fig3B/IL4I1R_FOLR2Y_panCKC",
@@ -286,14 +286,14 @@
             "dzi": "Figure_images/FigS5B/NLN_FOLR2Y_CD38P/NLN_FOLR2Y_CD38P.dzi"
         },
         {
-            "folder": "Figure_images/FigS6A/left_CD_CD68Y_CPTNC",
-            "name": "left_CD_CD68Y_CPTNC",
-            "dzi": "Figure_images/FigS6A/left_CD_CD68Y_CPTNC/left_CD_CD68Y_CPTNC.dzi"
-        },
-        {
             "folder": "Figure_images/FigS6A/right_NLRP3P_CD68Y_NLRP3P",
             "name": "right_NLRP3P_CD68Y_NLRP3P",
             "dzi": "Figure_images/FigS6A/right_NLRP3P_CD68Y_NLRP3P/right_NLRP3P_CD68Y_NLRP3P.dzi"
+        },
+        {
+            "folder": "Figure_images/FigS6A/left_CD_CD68Y_CPTNC",
+            "name": "left_CD_CD68Y_CPTNC",
+            "dzi": "Figure_images/FigS6A/left_CD_CD68Y_CPTNC/left_CD_CD68Y_CPTNC.dzi"
         },
         {
             "folder": "Figure_images/FigS2D/NC_IL4I1R_FOLR2Y_LYVE1P",
@@ -316,9 +316,9 @@
             "dzi": "Figure_images/FigS2B/big_area_panCKC_FOLR2Y_IL4I1R/big_area_panCKC_FOLR2Y_IL4I1R.dzi"
         },
         {
-            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R",
-            "name": "NC10_2_panCKC_FOLR2Y_IL4I1R",
-            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R.dzi"
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC2_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R.dzi"
         },
         {
             "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_panCKC_FOLR2Y_IL4I1R",
@@ -331,11 +331,6 @@
             "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC1_panCKC_FOLR2Y_IL4I1R/NC1_panCKC_FOLR2Y_IL4I1R.dzi"
         },
         {
-            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R",
-            "name": "NC2_panCKC_FOLR2Y_IL4I1R",
-            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R/NC2_panCKC_FOLR2Y_IL4I1R.dzi"
-        },
-        {
             "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R",
             "name": "NC5_panCKC_FOLR2Y_IL4I1R",
             "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R/NC5_panCKC_FOLR2Y_IL4I1R.dzi"
@@ -344,6 +339,11 @@
             "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R",
             "name": "NC6_panCKC_FOLR2Y_IL4I1R",
             "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R/NC6_panCKC_FOLR2Y_IL4I1R.dzi"
+        },
+        {
+            "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R",
+            "name": "NC10_2_panCKC_FOLR2Y_IL4I1R",
+            "dzi": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R/NC10_2_panCKC_FOLR2Y_IL4I1R.dzi"
         },
         {
             "folder": "Normal_Colon_panCKC_FOLR2Y_IL4I1R/NC8_panCKC_FOLR2Y_IL4I1R",
