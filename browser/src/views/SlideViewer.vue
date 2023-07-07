@@ -86,7 +86,11 @@ export default {
         }, 
         {
           letter: "B", 
-          color: "blue"
+          color: "brown"
+        }, 
+        {
+          letter: "W", 
+          color: "white"
         }
       ],
       overlays: [],
@@ -149,7 +153,7 @@ export default {
 
       this.currentColors.unshift({
             stain: "DAPI",
-            letter: "B",
+            letter: "X",
             color: "blue"
           }); 
       this.reloadSlide();
