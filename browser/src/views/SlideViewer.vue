@@ -13,6 +13,9 @@
           item-value="dzi"
           label="Sample">
         </v-select>
+        <v-btn>
+          <router-link to="/files" style="color: white;">Study Files</router-link>
+        </v-btn>
       </v-app-bar>
   
     <v-main class="d-flex relative-container">
