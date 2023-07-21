@@ -142,17 +142,17 @@ export default {
       this.selectedSample = this.samples.filter(s => s.dzi === this.selectedSampleDzi)[0];
 
       try {
-        this.currentColors = this.selectedSample.name.split("_").slice(1).filter(s => s.match(/[A-Z]$/)).map(s => {
-          return {
-            stain: s.slice(0, -1),
-            letter: s.slice(-1),
-            color: this.colorOptions.filter(c => c.letter === s.slice(-1))[0].color
-          }
-          
-        });
+          this.currentColors = this.selectedSample.name.split("_").slice(1).filter(s => s.match(/[A-Z]$/) && s !== "BC" && s !== "CRC").map(s => {
+              return {
+                  stain: s.slice(0, -1),
+                  letter: s.slice(-1),
+                  color: this.colorOptions.filter(c => c.letter === s.slice(-1))[0].color
+              };
+          });
       } catch (e) {
-        console.log(e);
+          console.log(e);
       }
+
 
       this.currentColors.unshift({
             stain: "DAPI",
@@ -167,13 +167,13 @@ export default {
     this.samples = samples.samples;
 
     this.samples = this.samples.map(s => {
-  let folders = s.folder.split('/');
-  folders.pop();
-  return {
-    ...s,
-    base_folder: folders.join('/')
-  }
-});
+      let folders = s.folder.split('/');
+      folders.pop();
+      return {
+        ...s,
+        base_folder: folders.join('/')
+      }
+    });
 
     this.loadOpenSeaDragon();
 
