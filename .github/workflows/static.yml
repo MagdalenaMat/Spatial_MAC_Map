@@ -36,6 +36,7 @@ jobs:
 
       - name: Build Vue.js Application
         run: |
+          cd browser
           npm run build
 
       - name: Setup Pages
