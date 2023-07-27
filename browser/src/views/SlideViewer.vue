@@ -23,7 +23,7 @@
         <span style="font-size: 2em; color: white;">&rarr;</span>
       </div>
       <div id="view"></div>
-      <div id="slide-details">
+      <div v-if="!isHomePage" id="slide-details">
         <ul>
           <li v-for="(stain, index) in currentColors" :key="index" :style="{ color: stain.color }">
             Stain {{ index + 1 }}: {{ stain.stain }}
@@ -31,6 +31,10 @@
         </ul>
         <a v-if="downloadLink" target="_blank" :href="downloadLink" download>Download slide</a> <br />
         <a v-if="selectedSampleUrl" target="_blank" :href="selectedSampleUrl">Current slide URL</a>
+      </div>
+      <div v-else id="home-view">
+        <button @click="closeHomeView" class="close-button">X</button>
+        <HomeView />
       </div>
     </v-main>
 
@@ -41,10 +45,13 @@
 import OpenSeadragon from "openseadragon";
 import samples from "../lib/data.json";
 
+import HomeView from "../components/HomeView.vue";
+
 const base_url = "https://storage.googleapis.com/spatial-mac-map";
 
 export default {
   components: {
+    HomeView
   },
   data() {
     return {
@@ -97,6 +104,7 @@ export default {
         }
       ],
       overlays: [],
+      isHomePage: false,
     }
   },
   computed: {
@@ -113,6 +121,10 @@ export default {
     }
   },
   methods: {
+    closeHomeView(){
+      console.log("closeHomeView");
+      this.isHomePage = false;
+    },
     loadOpenSeaDragon() {
       this.viewer = new OpenSeadragon({
         id: "view",
@@ -127,6 +139,7 @@ export default {
         zoomPerScroll: 2,
         showNavigationControl: true,
         navigationControlAnchor: OpenSeadragon.ControlAnchor.TOP_LEFT,
+        isHomePage: true,
       });
 
     },
@@ -180,9 +193,18 @@ export default {
     if(this.$route.query.slide) {
       this.selectedSampleDzi = this.samples.filter(s => s.folder === this.$route.query.slide)[0].dzi;
       this.selectedFolder = this.samples.filter(s => s.folder === this.$route.query.slide)[0].base_folder;
+
+      console.log("selectedSampleDzi: ", this.selectedSampleDzi);
+      console.log("selectedFolder: ", this.selectedFolder);
     } else {
-      this.selectedSampleDzi = this.samples[0].dzi;
-      this.selectedFolder = this.samples[0].base_folder;
+      // this.selectedSampleDzi = this.samples[0].dzi;
+      // this.selectedFolder = this.samples[0].base_folder;
+
+      this.selectedSampleDzi = this.samples.filter(s => s.folder === "Figure_images/FigS2C/LN_CRC_met_panCKC_FOLR2Y_IL4I1R")[0].dzi;
+      this.selectedFolder = this.samples.filter(s => s.folder === "Figure_images/FigS2C/LN_CRC_met_panCKC_FOLR2Y_IL4I1R")[0].base_folder;
+
+      this.isHomePage = true;
+
     }
   },
 }
@@ -206,10 +228,23 @@ div#slide-details {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* black background with 50% transparency */
+  background-color: rgba(0, 0, 0, 0.5); 
   color: white;
   padding: 10px;
   z-index: 2;
+}
+
+#home-view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%; 
+  height: 60%; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  z-index: 2; 
+  overflow: auto; 
 }
 
 #slide-details a {
@@ -223,5 +258,15 @@ div#slide-details {
 .card {
   margin: 10px;
   /* padding: 10px !important; */
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
 </style>
