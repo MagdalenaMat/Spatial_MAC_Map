@@ -48,3 +48,9 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+firebase.json
+.env
+
+node_modules/
+
+.firebaserc

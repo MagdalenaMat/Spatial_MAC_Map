@@ -16,6 +16,9 @@
         <v-btn>
           <router-link to="/files" style="color: white;">Study Files</router-link>
         </v-btn>
+        <v-btn v-if="adminToken" @click="saveSlideAnnotations">
+          Save
+        </v-btn>
       </v-app-bar>
   
     <v-main class="d-flex relative-container">
@@ -24,6 +27,20 @@
       </div>
       <div id="view"></div>
       <div v-if="!isHomePage" id="slide-details">
+        <h3>Description</h3>
+        <p v-if="!adminToken">{{ selectedSample.details ? selectedSample.details.description : '' }}</p>
+        <textarea v-else v-model="selectedSample.details.description" style="color: white;"></textarea>
+        <h3>Annotations</h3>
+        <ul v-if="selectedSample.details">
+          <li v-for="(overlay, index) in selectedSample.details.annotations" :key="index">
+            <span style="color: white;">{{ overlay.number }}: </span>
+            <span v-if="!adminToken" style="color: white;">{{ overlay.description }}</span>
+            <textarea v-else v-model="overlay.description" style="color: white;"></textarea>
+
+            <button v-if="adminToken" @click="deleteOverlay(index)" style="background: none; border: none; color: white;">Delete</button>
+          </li>
+        </ul>
+        <h3>Colors</h3>
         <ul>
           <li v-for="(stain, index) in currentColors" :key="index" :style="{ color: stain.color }">
             Stain {{ index + 1 }}: {{ stain.stain }}
@@ -43,11 +60,16 @@
 
 <script>
 import OpenSeadragon from "openseadragon";
-import samples from "../lib/data.json";
+import axios from "axios";
 
 import HomeView from "../components/HomeView.vue";
 
 const base_url = "https://storage.googleapis.com/spatial-mac-map";
+
+const apiBaseUrl  = 
+    process.env.NODE_ENV === "production"
+      ? "https://api-cloud-run-dybvjoi3xa-uc.a.run.app"
+      : "http://127.0.0.1:5001/som-lms-methylation/us-central1/api/graphql";
 
 export default {
   components: {
@@ -105,6 +127,7 @@ export default {
       ],
       overlays: [],
       isHomePage: false,
+      adminToken: ""
     }
   },
   computed: {
@@ -121,8 +144,30 @@ export default {
     }
   },
   methods: {
+    async getAllSlides() {
+      const response = await axios.post(`${apiBaseUrl}`,{
+        query: `{
+          getAllSlides {
+            name
+            dzi
+            folder
+            details {
+              description
+              annotations {
+                name
+                description
+                x
+                y
+                number
+              }
+            }
+          }
+        }`
+      }).catch(e => console.log(e));
+
+      return response.data.data.getAllSlides;
+    },
     closeHomeView(){
-      console.log("closeHomeView");
       this.isHomePage = false;
     },
     loadOpenSeaDragon() {
@@ -142,13 +187,101 @@ export default {
         isHomePage: true,
       });
 
+      this.viewer.addHandler('tile-drawn', () => {
+      if (!this.mouseTrackerInitialized) {
+        this.mouseTrackerInitialized = true;
+
+        this.$nextTick(() => {
+          new OpenSeadragon.MouseTracker({
+            element: this.viewer.canvas,
+            contextMenuHandler: e => {
+              e.originalEvent.preventDefault();
+
+              if(!this.adminToken) {
+                return; 
+              }
+
+              const clickPosition = e.position;
+
+              // Convert the click position to image coordinates
+              const imageCoordinates = this.viewer.viewport.viewerElementToImageCoordinates(clickPosition);
+
+              const elementCoordiantes = this.viewer.viewport.imageToViewportCoordinates(imageCoordinates);
+
+              this.selectedSample.details.annotations.push({
+                x: elementCoordiantes.x,
+                y: elementCoordiantes.y,
+                description: "", 
+                number: this.selectedSample.details.annotations.length > 0 ? this.selectedSample.details.annotations.map(overlay => overlay.number).sort((a, b) => a - b)[this.selectedSample.details.annotations.length-1] + 1 : 1
+              });
+
+              this.addOverlay(elementCoordiantes.x, elementCoordiantes.y, this.selectedSample.details.annotations[this.selectedSample.details.annotations.length-1].number);
+            },
+            
+          });
+
+        });
+      }
+    });
+
     },
 
+    addOverlay(x, y, number) {
+
+      const overlayElement = document.createElement("div");
+      overlayElement.className = "overlay-"+number; 
+      overlayElement.innerHTML = '<span>'+number+'</span><span style="font-size: 2em; color: white;">&rarr;</span>';
+
+      this.viewer.addOverlay({
+        element: overlayElement,
+        location: new OpenSeadragon.Point(x, y),
+        placement: OpenSeadragon.Placement.RIGHT
+      });
+
+      new OpenSeadragon.MouseTracker({
+        element: overlayElement,
+        clickHandler: (event) => {
+          event.originalEvent.preventDefault();
+        },
+      }).setTracking(true);
+    },  
+
+    deleteOverlay(index) {
+      this.selectedSample.details.annotations.splice(index, 1);
+      // this.selectedSample.details.annotations = this.selectedSample.details.annotations.maps((samp, index) => {
+      //   const buf = samp; 
+      //   buf.id = index + 1; 
+      //   return buf; 
+      // });
+      this.reloadSlide();
+    },
+
+    saveSlideAnnotations() {
+    const useQuery = `{
+        saveSlideDetails(details:{dzi:"${this.selectedSample.dzi}", 
+          description:"${this.selectedSample.details.description}",, 
+          annotations:${JSON.stringify(this.selectedSample.details.annotations).replace(/"([^"]+)":/g, "$1:")}})
+      }`;
+
+    axios.post(`${apiBaseUrl}`, {
+          query: useQuery
+        }, {
+          headers: {
+            'Authorization': `Bearer ${this.adminToken}`
+          }
+        }).then((response) => {
+          console.log(response);
+        }).catch(e => console.log(e));
+    },
     reloadSlide() {
       let currentSlide = `${base_url}/${this.selectedSampleDzi}`;
       this.downloadLink = currentSlide.slice(0, -4) + ".tif";
       this.selectedSampleUrl = `https://magdalenamat.github.io/Spatial_MAC_Map/#/?slide=${this.selectedSample.folder}`;
-      this.viewer.open(currentSlide)
+      this.viewer.open(currentSlide);
+
+      for (let i = 0; i < this.selectedSample.details.annotations.length; i++) {
+        this.addOverlay(this.selectedSample.details.annotations[i].x, this.selectedSample.details.annotations[i].y, this.selectedSample.details.annotations[i].number);
+      }
     },
 
     loadSample() {
@@ -177,7 +310,8 @@ export default {
 
   },
   mounted() {
-    this.samples = samples.samples;
+    this.getAllSlides().then((samples) => {
+      this.samples = samples;
 
     this.samples = this.samples.map(s => {
       let folders = s.folder.split('/');
@@ -194,8 +328,6 @@ export default {
       this.selectedSampleDzi = this.samples.filter(s => s.folder === this.$route.query.slide)[0].dzi;
       this.selectedFolder = this.samples.filter(s => s.folder === this.$route.query.slide)[0].base_folder;
 
-      console.log("selectedSampleDzi: ", this.selectedSampleDzi);
-      console.log("selectedFolder: ", this.selectedFolder);
     } else {
       // this.selectedSampleDzi = this.samples[0].dzi;
       // this.selectedFolder = this.samples[0].base_folder;
@@ -206,6 +338,12 @@ export default {
       this.isHomePage = true;
 
     }
+
+    if(this.$route.query.token) {
+      this.adminToken = this.$route.query.token ? this.$route.query.token : "";
+    }
+
+  }); 
   },
 }
 </script>
