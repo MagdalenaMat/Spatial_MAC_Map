@@ -15,7 +15,9 @@ async function addFilesToDatabase() {
     files = files.filter(file => file.name.endsWith(".dzi"));
 
     let curatedFiles = files.map(file => {
-        let cleanName = file.name.replace("full_slide_images/", "");
+        // let cleanName = file.name.replace("full_slide_images/", "");
+
+        let cleanName = file.name; 
     
         let splitPath = cleanName.split("/");
         splitPath.pop(); // remove the last element

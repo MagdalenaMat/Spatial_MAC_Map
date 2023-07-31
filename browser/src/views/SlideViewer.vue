@@ -30,16 +30,16 @@
         <h3>Description</h3>
         <p v-if="!adminToken">{{ selectedSample.details ? selectedSample.details.description : '' }}</p>
         <textarea v-else v-model="selectedSample.details.description" style="color: white;"></textarea>
+        <div v-if="adminToken">
         <h3>Annotations</h3>
-        <ul v-if="selectedSample.details">
-          <li v-for="(overlay, index) in selectedSample.details.annotations" :key="index">
-            <span style="color: white;">{{ overlay.number }}: </span>
-            <span v-if="!adminToken" style="color: white;">{{ overlay.description }}</span>
-            <textarea v-else v-model="overlay.description" style="color: white;"></textarea>
-
-            <button v-if="adminToken" @click="deleteOverlay(index)" style="background: none; border: none; color: white;">Delete</button>
-          </li>
-        </ul>
+          <ul v-if="selectedSample.details">
+            <li v-for="(overlay, index) in selectedSample.details.annotations" :key="index">
+              <span style="color: white;">{{ overlay.number }}: </span>
+              <textarea v-model="overlay.description" style="color: white;"></textarea>
+              <button v-if="adminToken" @click="deleteOverlay(index)" style="background: none; border: none; color: white;">Delete</button>
+            </li>
+          </ul>
+        </div>
         <h3>Colors</h3>
         <ul>
           <li v-for="(stain, index) in currentColors" :key="index" :style="{ color: stain.color }">
@@ -215,7 +215,10 @@ export default {
                 number: this.selectedSample.details.annotations.length > 0 ? this.selectedSample.details.annotations.map(overlay => overlay.number).sort((a, b) => a - b)[this.selectedSample.details.annotations.length-1] + 1 : 1
               });
 
-              this.addOverlay(elementCoordiantes.x, elementCoordiantes.y, this.selectedSample.details.annotations[this.selectedSample.details.annotations.length-1].number);
+              this.addOverlay(elementCoordiantes.x, 
+                elementCoordiantes.y, 
+                this.selectedSample.details.annotations[this.selectedSample.details.annotations.length-1].number,
+                this.selectedSample.details.annotations[this.selectedSample.details.annotations.length-1].description);
             },
             
           });
@@ -226,11 +229,13 @@ export default {
 
     },
 
-    addOverlay(x, y, number) {
+    addOverlay(x, y, number, description) {
+
+      console.log("description: ", description);
 
       const overlayElement = document.createElement("div");
       overlayElement.className = "overlay-"+number; 
-      overlayElement.innerHTML = '<span>'+number+'</span><span style="font-size: 2em; color: white;">&rarr;</span>';
+      overlayElement.innerHTML = '<span>'+(this.adminToken ? number : description.replace("\n", "<br />"))+'</span><span style="font-size: 2em; color: white;">&rarr;</span>';
 
       this.viewer.addOverlay({
         element: overlayElement,
@@ -280,7 +285,9 @@ export default {
       this.viewer.open(currentSlide);
 
       for (let i = 0; i < this.selectedSample.details.annotations.length; i++) {
-        this.addOverlay(this.selectedSample.details.annotations[i].x, this.selectedSample.details.annotations[i].y, this.selectedSample.details.annotations[i].number);
+        this.addOverlay(this.selectedSample.details.annotations[i].x, this.selectedSample.details.annotations[i].y, 
+        this.selectedSample.details.annotations[i].number,
+        this.selectedSample.details.annotations[i].description);
       }
     },
 
@@ -312,6 +319,12 @@ export default {
   mounted() {
     this.getAllSlides().then((samples) => {
       this.samples = samples;
+
+      this.samples.sort((a, b) => {
+        if(a.folder < b.folder) { return -1; }
+        if(a.folder > b.folder) { return 1; }
+        return 0;
+      });
 
     this.samples = this.samples.map(s => {
       let folders = s.folder.split('/');
@@ -406,5 +419,11 @@ div#slide-details {
   font-size: 20px;
   color: white;
   cursor: pointer;
+}
+.container {
+  display: flex;
+  align-items: center;
+  width: 50ch; /* adjust as needed */
+  flex-wrap: wrap; /* allow the items to wrap to the next line */
 }
 </style>
