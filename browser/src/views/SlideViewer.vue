@@ -68,7 +68,7 @@ const base_url = "https://storage.googleapis.com/spatial-mac-map";
 
 const apiBaseUrl  = 
     process.env.NODE_ENV === "production"
-      ? "https://api-cloud-run-dybvjoi3xa-uc.a.run.app"
+      ? "https://api-tpv7omntkq-uc.a.run.app/graphql"
       : "http://127.0.0.1:5001/som-lms-methylation/us-central1/api/graphql";
 
 export default {
