@@ -6,7 +6,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'viewer',
-      component: () => import('../views/SlideViewer.vue')
+      component: () => import('../views/SlideViewer.vue'),
+      meta: {
+        title: 'Spatial Macs Map Viewer'
+      }
     }, 
     {
       path: '/files',
