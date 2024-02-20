@@ -14,7 +14,7 @@ async function removeDatabaseEntries() {
         const slide = slides.docs[i];
         const slideData = slide.data();
 
-        if(slideData.folder.startsWith("Figure_images/")) {
+        if(slideData.folder.startsWith("figure_images/")) {
             console.log("deleting", slideData.folder);
             await slide.ref.delete();
         }

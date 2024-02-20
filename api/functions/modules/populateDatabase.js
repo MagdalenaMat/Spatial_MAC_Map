@@ -44,7 +44,7 @@ async function addFilesToDatabase() {
     const files = await addFilesToDatabase();
 
     files.forEach(file => {
-        if(file.folder.startsWith("figure_images/")) {
+        if(file.folder.startsWith("Figure_images/")) {
             console.log(file.dzi); 
             admin.firestore().collection("slides").doc().set({
                 dzi: file.dzi,
