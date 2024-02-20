@@ -1,5 +1,6 @@
 {
     "files": [
+        "Analysis_code_and_tab_data/CODEX/sample_clinical_data_Spatial_Mac_Map.xlsx",
         "Analysis_code_and_tab_data/CODEX/tissue_region_meta_data_CODEX_spatial_MAC_Map.csv",
         "Analysis_code_and_tab_data/CODEX/neighbourhood_analysis_and_distance_computation_in_python/1_input_annotated_CODEX_cell_metadata.csv",
         "Analysis_code_and_tab_data/CODEX/neighbourhood_analysis_and_distance_computation_in_python/1_res_and_2_input_BC_CRC_nieghbourhoods_clustering_res.csv",
@@ -14,6 +15,8 @@
         "Analysis_code_and_tab_data/CODEX/stacked_TIF_images/BC_stacked_TIFs_andChannel_names.zip",
         "Analysis_code_and_tab_data/CODEX/stacked_TIF_images/CRC_stacked_TIFs_with_channel_names 3.zip",
         "Analysis_code_and_tab_data/CODEX/stacked_TIF_images/CRC_stacked_TIFs_with_channel_names.zip",
+        "Analysis_code_and_tab_data/CosMx_Protein/CosMx_data_Fig6I.rds",
+        "Analysis_code_and_tab_data/CosMx_Protein/CosMx_fov_annots_Fig6I_wpatient_number.csv",
         "Analysis_code_and_tab_data/IF/clinical annotations TA588 TA589.xlsx",
         "Analysis_code_and_tab_data/IF/Fig2_distance_IL4I1_NLRP3_SPP1_FOLR2_MACs_to_Epithelial_cells/plot_distance_to_closest_tumor_Cell.R",
         "Analysis_code_and_tab_data/IF/Fig2_distance_IL4I1_NLRP3_SPP1_FOLR2_MACs_to_Epithelial_cells/plot_spatial_distribution.R",
