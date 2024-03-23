@@ -345,8 +345,8 @@ export default {
       // this.selectedSampleDzi = this.samples[0].dzi;
       // this.selectedFolder = this.samples[0].base_folder;
 
-      this.selectedSampleDzi = this.samples.filter(s => s.folder === "Figure_images/Fig2B_CODEX_image/reg027_panCKC_CD68R_CD163Y")[0].dzi;
-      this.selectedFolder = this.samples.filter(s => s.folder === "Figure_images/Fig2B_CODEX_image/reg027_panCKC_CD68R_CD163Y")[0].base_folder;
+      this.selectedSampleDzi = this.samples.filter(s => s.folder === "Figure_images/Fig2D_CODEX_image/reg027_panCKC_CD68R_CD163Y")[0].dzi;
+      this.selectedFolder = this.samples.filter(s => s.folder === "Figure_images/Fig2D_CODEX_image/reg027_panCKC_CD68R_CD163Y")[0].base_folder;
 
       this.isHomePage = true;
 
